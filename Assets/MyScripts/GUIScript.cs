@@ -43,7 +43,9 @@ public class GUIScript : MonoBehaviour {
         kills.text = "Kills: " + gm.kills;
         shots.text = "MG Shots: " + gm.shots;
         rockets.text = "Rockets Fired: " + gm.rockets;
-        Health.text =  "Health: " + gm.player.GetComponent<playerControls>().health.ToString();
+        if (gm.player != null) {
+            Health.text = "Health: " + gm.player.GetComponent<playerControls>().health.ToString();
+       }
     }
 
     public void Restart()

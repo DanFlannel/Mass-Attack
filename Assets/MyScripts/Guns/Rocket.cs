@@ -37,7 +37,7 @@ public class Rocket : MonoBehaviour {
 
         if (other.transform.tag == customTags.Enemies)
         {
-            Debug.Log("Adding enemy to the list");
+            //Debug.Log("Adding enemy to the list");
             enemies.Add(other.gameObject);
         }
     }
@@ -66,11 +66,6 @@ public class Rocket : MonoBehaviour {
         for(int i = 0; i < enemies.Count; i++)
         {
             Vector3 pos = enemies[i].transform.position;
-            /*if (Vector3.Distance(this.transform.position, pos) <= maxDist)
-            {
-                Debug.Log(Vector3.Distance(this.transform.position, pos) + " : i ");
-                newList.Add(enemies[i]);
-            }*/
 
             if (sc.bounds.Contains(pos))
             {
