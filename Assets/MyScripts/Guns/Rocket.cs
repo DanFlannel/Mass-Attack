@@ -66,9 +66,14 @@ public class Rocket : MonoBehaviour {
         for(int i = 0; i < enemies.Count; i++)
         {
             Vector3 pos = enemies[i].transform.position;
-            if (Vector3.Distance(this.transform.position, pos) <= maxDist)
+            /*if (Vector3.Distance(this.transform.position, pos) <= maxDist)
             {
                 Debug.Log(Vector3.Distance(this.transform.position, pos) + " : i ");
+                newList.Add(enemies[i]);
+            }*/
+
+            if (sc.bounds.Contains(pos))
+            {
                 newList.Add(enemies[i]);
             }
         }

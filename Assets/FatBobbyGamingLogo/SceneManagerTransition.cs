@@ -23,7 +23,8 @@ public class SceneManagerTransition : MonoBehaviour {
 	void Start () {
         TimerA = Time.time;
         dispLoadTime = false;
-        StartCoroutine(LoadScene());
+        StatusText.text = "";
+        //StartCoroutine(LoadScene());
 	}
 	
 	// Update is called once per frame
@@ -52,8 +53,7 @@ public class SceneManagerTransition : MonoBehaviour {
         while (async.progress < 0.9f)
         {
             var scaledPerc = 0.5f * async.progress / 0.9f;
-            //StatusText.text = "Loading World : " + (100f * scaledPerc).ToString("F0");
-            StatusText.text = "Gathering Carrots : " + (100f * scaledPerc).ToString("F0");
+            StatusText.text = "Loading World : " + (100f * scaledPerc).ToString("F0");
         }
         float perc = 0.5f;
 
@@ -61,17 +61,8 @@ public class SceneManagerTransition : MonoBehaviour {
         {
             yield return new WaitForEndOfFrame();
             perc = Mathf.Lerp(perc, 1f, 0.05f);
-            //StatusText.text = "Initalizing World : " + (100f * perc).ToString("F0");
-            if ((100f * perc) >= 99f)
-            {
-                StatusText.text = "Bunny Is Ready!";
-            }
-            else {
-                StatusText.text = "Bunny Warming Up : " + (100f * perc).ToString("F0");
-            }
+            StatusText.text = "Initalizing World : " + (100f * perc).ToString("F0");
         }
-
-        //StatusText.text = "World Domination Complete";
     }
 
     
